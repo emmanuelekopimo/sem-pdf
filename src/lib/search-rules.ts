@@ -1,7 +1,7 @@
 /** Ranking settings shared by the app, seed script and tests. */
 export const SEARCH_LIMIT = 20;
 export const MIN_SCORE = 0.22;
-export const MAX_PER_DOCUMENT = 4;
+export const MAX_PER_DOCUMENT = 3;
 export const MAX_QUERY_LENGTH = 200;
 
 /**

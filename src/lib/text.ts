@@ -63,7 +63,7 @@ export function chunkPages(pages: PageText[], options: ChunkOptions = {}): TextC
   let position = 0;
 
   for (const { page, text } of pages) {
-    const sentences = splitSentences(cleanText(text));
+    const sentences = splitSentences(cleanText(markHeadings(text)));
     if (sentences.length === 0) continue;
     const pageChunks: string[][] = [];
     let current: string[] = [];
@@ -123,7 +123,7 @@ export function truncate(text: string, maxChars: number): string {
   if (text.length <= maxChars) return text;
   const cut = text.slice(0, maxChars);
   const space = cut.lastIndexOf(" ");
-  return `${cut.slice(0, space > maxChars * 0.6 ? space : maxChars).trimEnd()}...`;
+  return `${cut.slice(0, space > 0 ? space : maxChars).trimEnd()}...`;
 }
 
 /** Title from a filename: "intro_to-ml.pdf" becomes "Intro To Ml". */
@@ -131,4 +131,69 @@ export function titleFromFilename(filename: string): string {
   const base = filename.replace(/\.pdf$/i, "").replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
   if (!base) return "Untitled document";
   return base.replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+/**
+ * Removes running headers and footers: a page's first or last line that
+ * repeats on most pages once digits are ignored, such as "Page 3 of 9" or the
+ * document title. Only applies to documents with at least 3 pages, and the
+ * line must appear on at least 60% of them. Bare page numbers are always
+ * dropped.
+ */
+export function stripRunningLines(pages: PageText[]): PageText[] {
+  const withText = pages.filter((p) => p.text.trim());
+  const key = (line: string) => line.trim().toLowerCase().replace(/\d+/g, "#");
+  const pageLines = pages.map((p) => p.text.split(/\r?\n/));
+  const remove = new Set<string>();
+  if (withText.length >= 3) {
+    const seen = new Map<string, number>();
+    for (const lines of pageLines) {
+      const edges = lines.map((l) => l.trim()).filter(Boolean);
+      for (const k of new Set([edges[0], edges.at(-1)].filter((l): l is string => !!l).map(key))) seen.set(k, (seen.get(k) ?? 0) + 1);
+    }
+    for (const [k, n] of seen) if (n / withText.length >= 0.6) remove.add(k);
+  }
+  const pageNumber = /^(page\s*)?#(\s*(of|\/)\s*#)?$/;
+  return pages.map((p, i) => ({
+    page: p.page,
+    text: pageLines[i]!
+      .filter((line) => {
+        const k = key(line);
+        return !pageNumber.test(k) && !remove.has(k);
+      })
+      .join("\n"),
+  }));
+}
+
+/**
+ * Ends short title-like lines with a full stop so a heading becomes its own
+ * sentence instead of running into the paragraph below it.
+ */
+export function markHeadings(text: string): string {
+  const lines = text.split(/\r?\n/);
+  return lines
+    .map((line, i) => {
+      const t = line.trim();
+      const next = lines[i + 1]?.trim() ?? "";
+      const words = countWords(t);
+      const isHeading = words > 0 && words <= 8 && /^[A-Z0-9]/.test(t) && !/[.!?:;,]$/.test(t) && /^[A-Z0-9]/.test(next);
+      return isHeading ? `${t}.` : line;
+    })
+    .join("\n");
+}
+
+/**
+ * Removes the sentences a passage repeats from the previous passage on the
+ * same page (the chunk overlap), for reading a document straight through.
+ */
+export function withoutOverlap<T extends { page: number; content: string }>(passages: T[]): (T & { display: string })[] {
+  return passages.map((p, i) => {
+    const prev = passages[i - 1];
+    if (!prev || prev.page !== p.page) return { ...p, display: p.content };
+    const prevSentences = new Set(splitSentences(prev.content));
+    const own = splitSentences(p.content);
+    let start = 0;
+    while (start < own.length - 1 && prevSentences.has(own[start]!)) start++;
+    return { ...p, display: own.slice(start).join(" ") };
+  });
 }

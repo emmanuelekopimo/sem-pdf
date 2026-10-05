@@ -1,7 +1,7 @@
 import { eq, sql } from "drizzle-orm";
 import type { Db } from "@/db";
 import { chunks, documents, users } from "@/db/schema";
-import { chunkPages, countWords, titleFromFilename } from "@/lib/text";
+import { chunkPages, countWords, stripRunningLines, titleFromFilename } from "@/lib/text";
 import { embedTexts } from "./embedder";
 import { looksLikePdf, parsePdf } from "./pdf";
 
@@ -37,7 +37,7 @@ export async function ingestPdf(db: Db, input: IngestInput): Promise<IngestResul
     throw new IngestError(`${input.filename} could not be read. It may be damaged or password protected.`);
   }
 
-  const passages = chunkPages(parsed.pages);
+  const passages = chunkPages(stripRunningLines(parsed.pages));
   const embeddings = passages.length ? await embedTexts(passages.map((p) => p.content)) : [];
   const wordCount = parsed.pages.reduce((n, p) => n + countWords(p.text), 0);
   const title = input.title ?? parsed.title ?? titleFromFilename(input.filename);

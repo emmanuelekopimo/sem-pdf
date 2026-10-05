@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="300" viewBox="0 0 420 300" role="img" aria-label="Question matched to the right page of a PDF">
+  <rect x="20" y="40" width="330" height="56" rx="28" fill="#fff" stroke="#cccccc" stroke-width="2"/>
+  <path d="M276 41v54" stroke="#cccccc" stroke-width="2"/>
+  <path d="M277 41h45a27 27 0 0 1 0 54h-45z" fill="#f8f8f8"/>
+  <text x="46" y="74" font-family="Roboto, Arial, sans-serif" font-size="17" fill="#0f0f0f">best time to plant corn</text>
+  <circle cx="308" cy="64" r="10" fill="none" stroke="#0f0f0f" stroke-width="3"/>
+  <path d="M315 71l8 8" stroke="#0f0f0f" stroke-width="3" stroke-linecap="round"/>
+  <path d="M180 110c0 40 30 50 60 60" fill="none" stroke="#FF0000" stroke-width="3" stroke-dasharray="7 6"/>
+  <path d="M232 160l14 12-17 5" fill="none" stroke="#FF0000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="210" y="150" width="190" height="130" rx="12" fill="#fff" stroke="#0f0f0f" stroke-width="2"/>
+  <rect x="210" y="150" width="190" height="30" rx="12" fill="#2ba640"/>
+  <rect x="210" y="166" width="190" height="14" fill="#2ba640"/>
+  <text x="226" y="171" font-family="Roboto, Arial, sans-serif" font-weight="700" font-size="13" fill="#fff">Maize Farming Guide</text>
+  <rect x="226" y="194" width="150" height="7" rx="3.5" fill="#d0d0d0"/>
+  <rect x="222" y="208" width="166" height="34" rx="6" fill="#fff3a8"/>
+  <rect x="228" y="215" width="140" height="7" rx="3.5" fill="#b8a200"/>
+  <rect x="228" y="228" width="120" height="7" rx="3.5" fill="#b8a200"/>
+  <rect x="226" y="252" width="130" height="7" rx="3.5" fill="#d0d0d0"/>
+  <rect x="352" y="258" width="38" height="16" rx="4" fill="#0f0f0f" opacity="0.85"/>
+  <text x="358" y="270" font-family="Roboto, Arial, sans-serif" font-size="11" fill="#fff">p. 1</text>
+  <g opacity="0.9">
+    <rect x="30" y="150" width="120" height="120" rx="12" fill="#e8f0fe"/>
+    <text x="48" y="190" font-family="Roboto, Arial, sans-serif" font-size="13" fill="#065fd4">Keyword search</text>
+    <text x="48" y="212" font-family="Roboto, Arial, sans-serif" font-size="13" fill="#606060">"corn" appears</text>
+    <text x="48" y="232" font-family="Roboto, Arial, sans-serif" font-size="13" fill="#606060">0 times</text>
+  </g>
+</svg>

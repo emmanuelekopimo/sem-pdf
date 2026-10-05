@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="170" viewBox="0 0 360 170" role="img" aria-label="Stack of PDF documents being searched">
+  <ellipse cx="180" cy="156" rx="150" ry="10" fill="#000" opacity="0.06"/>
+  <g transform="rotate(-8 110 90)">
+    <rect x="62" y="30" width="96" height="120" rx="8" fill="#e8f0fe" stroke="#065fd4" stroke-width="2"/>
+    <rect x="76" y="48" width="56" height="7" rx="3.5" fill="#065fd4"/>
+    <rect x="76" y="64" width="66" height="5" rx="2.5" fill="#9bbcf0"/>
+    <rect x="76" y="76" width="60" height="5" rx="2.5" fill="#9bbcf0"/>
+    <rect x="76" y="88" width="66" height="5" rx="2.5" fill="#9bbcf0"/>
+  </g>
+  <g transform="rotate(7 250 90)">
+    <rect x="202" y="30" width="96" height="120" rx="8" fill="#e6f4ea" stroke="#2ba640" stroke-width="2"/>
+    <rect x="216" y="48" width="56" height="7" rx="3.5" fill="#2ba640"/>
+    <rect x="216" y="64" width="66" height="5" rx="2.5" fill="#a8dab5"/>
+    <rect x="216" y="76" width="60" height="5" rx="2.5" fill="#a8dab5"/>
+    <rect x="216" y="88" width="66" height="5" rx="2.5" fill="#a8dab5"/>
+  </g>
+  <rect x="128" y="14" width="104" height="132" rx="9" fill="#fff" stroke="#0f0f0f" stroke-width="2"/>
+  <rect x="128" y="14" width="104" height="24" rx="9" fill="#FF0000"/>
+  <rect x="128" y="28" width="104" height="10" fill="#FF0000"/>
+  <text x="143" y="31" font-family="Roboto, Arial, sans-serif" font-weight="700" font-size="12" fill="#fff">PDF</text>
+  <rect x="142" y="50" width="76" height="6" rx="3" fill="#d0d0d0"/>
+  <rect x="142" y="63" width="64" height="6" rx="3" fill="#d0d0d0"/>
+  <rect x="140" y="74" width="80" height="12" rx="4" fill="#fff3a8"/>
+  <rect x="142" y="77" width="70" height="6" rx="3" fill="#b8a200"/>
+  <rect x="142" y="92" width="72" height="6" rx="3" fill="#d0d0d0"/>
+  <rect x="142" y="105" width="58" height="6" rx="3" fill="#d0d0d0"/>
+  <circle cx="226" cy="108" r="26" fill="#fff" fill-opacity="0.6" stroke="#0f0f0f" stroke-width="6"/>
+  <path d="M245 127l22 22" stroke="#0f0f0f" stroke-width="9" stroke-linecap="round"/>
+  <path d="M214 98l6-6 6 6 6-6" stroke="#FF0000" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="72" cy="22" r="5" fill="#FF0000" opacity="0.25"/>
+  <circle cx="300" cy="18" r="7" fill="#065fd4" opacity="0.2"/>
+  <circle cx="318" cy="132" r="4" fill="#2ba640" opacity="0.3"/>
+</svg>

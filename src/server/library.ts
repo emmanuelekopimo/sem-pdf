@@ -109,6 +109,7 @@ export async function listSearches(db: Db, userId: number, limit = 200) {
       durationMs: searches.durationMs,
       runCount: searches.runCount,
       lastRunAt: searches.lastRunAt,
+      libraryVersion: searches.libraryVersion,
     })
     .from(searches)
     .where(eq(searches.userId, userId))
