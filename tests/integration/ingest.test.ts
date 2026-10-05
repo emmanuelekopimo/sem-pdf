@@ -4,9 +4,9 @@ import { chunks, documents, users } from "@/db/schema";
 import { IngestError, ingestPdf } from "@/server/ingest";
 import { deleteDocument, getDocument, getDocumentFile, libraryStats, listDocuments } from "@/server/library";
 import { makeScannedPdf } from "../../scripts/lib/make-pdf";
-import { MAIZE, addPdf, makeUser, useTestDb } from "./helpers";
+import { MAIZE, addPdf, makeUser, setupTestDb } from "./helpers";
 
-const db = useTestDb();
+const db = setupTestDb();
 
 describe("ingesting PDFs", () => {
   it("extracts pages, stores 384 dimension embeddings and bumps the library version", async () => {

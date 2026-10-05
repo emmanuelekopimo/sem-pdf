@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { EmailTakenError, checkCredentials, createUser } from "@/server/auth-core";
-import { makeUser, useTestDb } from "./helpers";
+import { makeUser, setupTestDb } from "./helpers";
 
-const db = useTestDb();
+const db = setupTestDb();
 
 describe("accounts", () => {
   it("stores a bcrypt hash, never the password", async () => {

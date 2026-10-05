@@ -6,7 +6,7 @@ import { ingestPdf } from "@/server/ingest";
 import { makeTextPdf } from "../../scripts/lib/make-pdf";
 
 /** One pool per test file against the test database (DATABASE_URL is set in vitest.config.ts). */
-export function useTestDb() {
+export function setupTestDb() {
   const { db, pool } = createDb(process.env.DATABASE_URL);
   beforeEach(async () => {
     await db.execute(sql`TRUNCATE search_results, searches, chunks, documents, users RESTART IDENTITY CASCADE`);
@@ -17,7 +17,7 @@ export function useTestDb() {
   return db;
 }
 
-export async function makeUser(db: ReturnType<typeof useTestDb>, name = "Chioma Nwankwo", email = "chioma@example.com") {
+export async function makeUser(db: ReturnType<typeof setupTestDb>, name = "Chioma Nwankwo", email = "chioma@example.com") {
   return createUser(db, { name, email, password: "password123" });
 }
 
@@ -40,6 +40,6 @@ export const TENANCY = {
   ] as [string, string][],
 };
 
-export async function addPdf(db: ReturnType<typeof useTestDb>, userId: number, doc: typeof MAIZE, collection = "Agriculture") {
+export async function addPdf(db: ReturnType<typeof setupTestDb>, userId: number, doc: typeof MAIZE, collection = "Agriculture") {
   return ingestPdf(db, { userId, filename: `${doc.title.toLowerCase().replace(/\s+/g, "-")}.pdf`, collection, bytes: await makeTextPdf(doc) });
 }

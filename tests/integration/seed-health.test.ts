@@ -5,9 +5,9 @@ import { getToday } from "@/lib/today";
 import { isDatabaseEmpty, seedDatabase } from "../../scripts/lib/seed-lib";
 import { DEMO_DOCUMENTS, DEMO_SEARCHES, SCANNED_DOCUMENTS } from "../../scripts/seed-data";
 import { GET as health } from "@/app/api/health/route";
-import { useTestDb } from "./helpers";
+import { setupTestDb } from "./helpers";
 
-const db = useTestDb();
+const db = setupTestDb();
 
 describe("demo seed", () => {
   it("fills an empty database with dated documents, problem cases and saved searches", async () => {

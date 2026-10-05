@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { deleteDocument, listSearches } from "@/server/library";
 import { deleteSearches, runSearch } from "@/server/search";
-import { MAIZE, TENANCY, addPdf, makeUser, useTestDb } from "./helpers";
+import { MAIZE, TENANCY, addPdf, makeUser, setupTestDb } from "./helpers";
 
-const db = useTestDb();
+const db = setupTestDb();
 const at = (iso: string) => new Date(iso);
 
 describe("semantic search", () => {

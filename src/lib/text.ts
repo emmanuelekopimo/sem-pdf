@@ -1,6 +1,6 @@
 /** Words ignored when checking for literal keyword overlap. */
 const STOP_WORDS = new Set(
-  "a an and are as at be by can do does for from has have how i in into is it its of on or that the their them this to was we what when where which who why will with you your".split(
+  "a about all also an and any are as at be but by can could do does for from get has have how i if in into is it its just me more most my not of on or should so some someone than that the their them then there this to very was we what when where which who why will with would you your".split(
     " ",
   ),
 );
