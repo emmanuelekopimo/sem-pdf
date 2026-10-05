@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="28" viewBox="0 0 40 28" role="img" aria-label="SemPDF logo">
+  <rect width="40" height="28" rx="7" fill="#FF0000"/>
+  <path d="M13 6h9l5 5v11a1 1 0 0 1-1 1H13a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z" fill="#fff"/>
+  <path d="M22 6v5h5" fill="#ffd0d0"/>
+  <circle cx="18.5" cy="16" r="3.2" fill="none" stroke="#FF0000" stroke-width="1.8"/>
+  <path d="M20.9 18.4l2.6 2.6" stroke="#FF0000" stroke-width="1.8" stroke-linecap="round"/>
+</svg>
